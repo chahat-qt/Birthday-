@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manisha's Birthday Surprise!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #d40b7d;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 0 #fff;
+            animation: bounce 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cake {
+            font-size: 100px;
+            animation: spin 4s linear infinite;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .balloon:before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            background-color: #333;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-100px) rotate(5deg); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: confetti 5s linear infinite;
+        }
+
+        @keyframes confetti {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .photo-frame {
+            border: 15px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 20px auto;
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            animation: swing 3s ease-in-out infinite;
+            background-color: #fff;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gif-container {
+            margin: 20px 0;
+        }
+
+        .btn {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #d40b7d;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .wish {
+            font-size: 24px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Balloons -->
+        <div class="balloon" style="left: 10%; animation-delay: 0s; background-color: #ff4081;"></div>
+        <div class="balloon" style="left: 30%; animation-delay: 1s; background-color: #4caf50;"></div>
+        <div class="balloon" style="left: 50%; animation-delay: 2s; background-color: #2196f3;"></div>
+        <div class="balloon" style="left: 70%; animation-delay: 3s; background-color: #ffeb3b;"></div>
+        <div class="balloon" style="left: 90%; animation-delay: 4s; background-color: #9c27b0;"></div>
+
+        <div class="cake">🎂</div>
+        <h1>Happy Birthday Manisha!</h1>
+        
+        <div class="photo-frame">
+            <img src="manisha.jpg" alt="Manisha's Birthday Photo">
+        </div>
+        
+        <div class="message">
+            <p>Click the button below for your special surprise!</p>
+            <button class="btn" id="surpriseBtn">Click for Surprise!</button>
+        </div>
+        
+        <div id="surpriseContent" class="hidden">
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJjY3J5d3h2d2VxZ2V2c3V3bWZ0dGx3eWJ0bW5rM3RqZ3F5aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT5LMHxhOfscxPfIfm/giphy.gif" alt="Birthday Celebration" style="max-width: 100%; border-radius: 20px;">
+            </div>
+            
+            <div class="wish">
+                <p>Wishing you a day filled with happiness and a year filled with joy!</p>
+                <p>May all your dreams come true and may you be blessed with good health, success, and lots of love!</p>
+                <p>Enjoy your special day to the fullest! 🎉🎊</p>
+            </div>
+            
+            <div class="signature">With Love ❤️</div>
+            
+            <div class="cake">🥳</div>
+        </div>
+    </div>
+
+    <script>
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#f00', '#0f0', '#00f', '#ff0', '#f0f', '#0ff'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Surprise button click handler
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('surpriseContent').classList.remove('hidden');
+            createConfetti();
+            
+            // Play birthday audio
+            const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+            audio.play().catch(e => console.log("Audio play failed:", e));
+            
+            // Change title animation
+            document.querySelector('h1').style.animation = 'none';
+            setTimeout(() => {
+                document.querySelector('h1').style.animation = 'bounce 0.5s infinite';
+            }, 10);
+        });
+    </script>
+</body>
+</html>
